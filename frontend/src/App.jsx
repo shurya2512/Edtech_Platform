@@ -1,10 +1,9 @@
 import { Routes, Route } from "react-router-dom";
+import { SignIn, SignUp } from "@clerk/clerk-react";
 import LandingPage from "./pages/LandingPage";
 import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
-
-// Clerk sign-in/sign-up pages will be wired in SPEC-02
-// import { SignIn, SignUp } from "@clerk/clerk-react";
+import AuthLayout from "./components/ui/AuthLayout";
 
 export default function App() {
   return (
@@ -12,14 +11,28 @@ export default function App() {
       {/* Public */}
       <Route path="/" element={<LandingPage />} />
 
-      {/* Auth pages — placeholders for SPEC-02 */}
-      {/* <Route path="/sign-in/*" element={<SignIn routing="path" path="/sign-in" />} /> */}
-      {/* <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />} /> */}
+      {/* Auth pages */}
+      <Route
+        path="/sign-in/*"
+        element={
+          <AuthLayout>
+            <SignIn routing="path" path="/sign-in" />
+          </AuthLayout>
+        }
+      />
+      <Route
+        path="/sign-up/*"
+        element={
+          <AuthLayout>
+            <SignUp routing="path" path="/sign-up" />
+          </AuthLayout>
+        }
+      />
 
-      {/* Student area — auth protection added in SPEC-02 */}
+      {/* Student area */}
       <Route path="/dashboard" element={<StudentDashboard />} />
 
-      {/* Teacher area — role-guard added in SPEC-02 */}
+      {/* Teacher area */}
       <Route path="/teacher" element={<TeacherDashboard />} />
 
       {/* 404 fallback */}

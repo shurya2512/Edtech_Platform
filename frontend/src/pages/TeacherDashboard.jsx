@@ -52,7 +52,7 @@ export default function TeacherDashboard() {
                     >
                         P
                     </div>
-                    <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{name} Sharma</div>
+                    <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{name} Ahmed</div>
                     <div
                         style={{
                             display: "inline-block",
