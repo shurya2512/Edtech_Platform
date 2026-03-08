@@ -35,6 +35,7 @@ def health_check():
 # ---------------------------------------------------------------------------
 # from app.routers import clerk_webhooks, courses, payments, media, batches
 # from app.routers import tests, admin, doubts, bookmarks, notifications
+from app.routers import users
 
 # app.include_router(clerk_webhooks.router)
 # app.include_router(courses.router, prefix="/courses", tags=["courses"])
@@ -46,3 +47,5 @@ def health_check():
 # app.include_router(doubts.router, prefix="/doubts", tags=["doubts"])
 # app.include_router(bookmarks.router, prefix="/bookmarks", tags=["bookmarks"])
 # app.include_router(notifications.router, prefix="/notifications", tags=["notifications"])
+
+app.include_router(users.router, prefix="/users", tags=["users"])
